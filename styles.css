@@ -1,0 +1,39 @@
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "DM Sans", sans-serif;
+}
+
+body,html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+#graph {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+}
+
+code {
+    background-color: #eee;
+    border-radius: 3px;
+    padding: 0 4px;
+}
+/* Create a Parallax Effect */
+.bgimg-1,.bgimg-2,.bgimg-3 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url('https://www.goodix.com/en/webimages/sj01.jpg');
+  min-height: 100%;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
