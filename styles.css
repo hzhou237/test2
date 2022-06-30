@@ -28,7 +28,7 @@ code {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
-  background-image: url('laptop dark.jpg');
+  background-image: url('./images/laptop dark.jpg');
   min-height: 100%;
 }
 
@@ -44,18 +44,6 @@ code {
   margin: auto;
   width: 50%;
 }
-
-/*.reveal{*/
-/*  position: relative;*/
-/*  transform: translateY(150px);*/
-/*  opacity: 0;*/
-/*  transition: 0.4s all ease;*/
-/*}*/
-
-/*.reveal.active{*/
-/*  transform: translateY(0);*/
-/*  opacity: 1;*/
-/*}*/
 
 .fade p {
     -webkit-animation: fadein 2.5s; /* Safari, Chrome and Opera > 12.1 */
