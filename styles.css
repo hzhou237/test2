@@ -18,7 +18,7 @@ code {
     border-radius: 3px;
     padding: 0 4px;
 }
-/* Create a Parallax Effect */
+
 .bgimg-1,.bgimg-2,.bgimg-3 {
   background-attachment: fixed;
   background-position: center;
@@ -26,9 +26,8 @@ code {
   background-size: cover;
 }
 
-/* First image (Logo. Full height) */
 .bgimg-1 {
-  background-image: url('laptop dark.jpg');
+  background-image: url('./images/laptop dark.jpg');
   min-height: 100%;
 }
 
@@ -44,18 +43,6 @@ code {
   margin: auto;
   width: 50%;
 }
-
-/*.reveal{*/
-/*  position: relative;*/
-/*  transform: translateY(150px);*/
-/*  opacity: 0;*/
-/*  transition: 0.4s all ease;*/
-/*}*/
-
-/*.reveal.active{*/
-/*  transform: translateY(0);*/
-/*  opacity: 1;*/
-/*}*/
 
 .fade p {
     -webkit-animation: fadein 2.5s; /* Safari, Chrome and Opera > 12.1 */
@@ -99,7 +86,6 @@ code {
   height: 450px;
   background-color: #ffffff;
   border: 2px solid lightgray;
-  /*display: block;*/
 }
 
 .container{
