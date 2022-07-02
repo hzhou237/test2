@@ -138,7 +138,7 @@ input {
 .tab-label {
   display: flex;
   justify-content: space-between;
-  padding: 1em;
+  padding: 0.7em;
   background: #d6d6d6;
   cursor: pointer;
 }
