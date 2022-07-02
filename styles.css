@@ -27,7 +27,7 @@ code {
 }
 
 .bgimg-1 {
-  background-image: url('laptop dark.jpg');
+  background-image: url('./images/laptop dark.jpg');
   min-height: 100%;
 }
 
