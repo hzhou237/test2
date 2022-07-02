@@ -176,7 +176,7 @@
                 <div class="tabs">
                   <div class="tab">
                     <input type="radio" id="rd1" name="rd" checked="checked">
-                    <label class="tab-label" for="rd1"><strong>Background</strong></label>
+                    <label class="tab-label" for="rd1" style="font-size:1.15em"><strong>Background</strong></label>
                     <div class="tab-content">
                         This example shows an upgrade opportunity for <a href="https://github.com/aws/aws-cli/" target="_blank" rel="noopener noreferrer">aws-cli</a> version 1.21.8.
                         Initially, this project specified <code>'colorama&gt;=0.2.5,&lt;0.4.4'</code> as one of its dependencies. At the time,
@@ -186,7 +186,7 @@
                   </div>
                   <div class="tab">
                     <input type="radio" id="rd2" name="rd">
-                    <label class="tab-label" for="rd2"><strong>Method</strong></label>
+                    <label class="tab-label" for="rd2" style="font-size:1.15em"><strong>Method</strong></label>
                     <div class="tab-content">
                         Using upgradvisor, we performed a dedicated analysis of the difference between <code>colorama</code> versions 0.4.3 and
                         0.4.4, as used by <code>aws-cli</code>. This analysis indicated that the changes between 0.4.3 and 0.4.4 did not impact
@@ -195,7 +195,7 @@
                   </div>
                   <div class="tab">
                     <input type="radio" id="rd3" name="rd">
-                    <label class="tab-label" for="rd3"><strong>Graph legend</strong></label>
+                    <label class="tab-label" for="rd3" style="font-size:1.15em"><strong>Graph legend</strong></label>
                     <div class="tab-content">
                         Each node in the graph indicates a python method (with some exceptions). <code>aws-cli</code> code is shown in green,
                         and the code calling <code>colorama</code> is shown in orange. Changes between version 0.4.3 and 0.4.4 are shown as
@@ -204,7 +204,7 @@
                   </div>
                   <div class="tab">
                     <input type="radio" id="rd4" name="rd">
-                    <label class="tab-label" for="rd4"><strong>Graph Analysis</strong></label>
+                    <label class="tab-label" for="rd4" style="font-size:1.15em"><strong>Graph Analysis</strong></label>
                     <div class="tab-content">
                         From the attached graph, we can see that <code>aws-cli</code> only calls colorama’s <code>initialise</code> method, which itself has
                         no changes between 0.4.3 and 0.4.4. Based on the graph, we can see that the changes between 0.4.3 and 0.4.4 are
