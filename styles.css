@@ -189,3 +189,15 @@ input:checked ~ .tab-content {
   padding: 1em;
 }
 
+
+a {
+  text-decoration: underline;
+  text-decoration-color: #8cc63f;
+  -webkit-text-decoration-color: #8cc63f;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: #8cc63f;
+}
+
