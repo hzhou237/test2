@@ -191,13 +191,14 @@ input:checked ~ .tab-content {
 
 
 a {
+  text-decoration: none;
+  color: #8cc63f;
+}
+
+a:hover {
   text-decoration: underline;
   text-decoration-color: #8cc63f;
   -webkit-text-decoration-color: #8cc63f;
   text-underline-offset: 3px;
-}
-
-a:hover {
-  color: #8cc63f;
 }
 
