@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
     <title>Upgradvisor</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=DM Sans">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet"> 
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vis-network@latest/styles/vis-network.css" type="text/css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vis-network@latest/dist/vis-network.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,19 +21,31 @@
     <button class="back-to-top w3-circle"><i class="fa-solid fa-chevron-up"></i></button>
     
     <!--navigation bar-->
-    <div class="w3-top w3-white w3-padding w3-card" style="z-index:2">
+    <div class="w3-top">
+      <div class="w3-white w3-card w3-padding">
         <a href="#" class="w3-button w3-bar-item" style="padding:5px 5px !important">
           <span><img src="./images/logo.png" class="w3-bar-item" alt="Logo" style="max-width:2em;max-height:2em"></span>
           <span><strong>upgr</strong></span>
           <span style="color:#8cc63f;margin-left:-5px;"><strong>advisor</strong></span>
         </a>
-        <div class="w3-bar-item w3-right">
-          <a href="#demo" class="w3-bar-item w3-button">DEMO</a>
-          <a href="https://github.com/apps/upgradvisor-python3" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button">APP</a>
-          <a href="https://figshare.com/articles/software/UPGRADVISOR_Early_Adopting_Dependency_Updates_Using_Production_Traces/19593457" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button">ARTIFACT</a>
-          <a href="https://yanivmd.github.io/files/Upgradvisor-Paper.pdf" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button">PAPER</a>
-          <a href="#contact" class="w3-bar-item w3-button">CONTACT</a>
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="openMenu()"><i class="fa-solid fa-bars"></i></a>
+        <div class="w3-right">
+          <a href="#demo" class="w3-bar-item w3-button w3-hide-small">DEMO</a>
+          <a href="https://github.com/apps/upgradvisor-python3" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button w3-hide-small">APP</a>
+          <a href="https://figshare.com/articles/software/UPGRADVISOR_Early_Adopting_Dependency_Updates_Using_Production_Traces/19593457" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button w3-hide-small">ARTIFACT</a>
+          <a href="https://yanivmd.github.io/files/Upgradvisor-Paper.pdf" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button w3-hide-small">PAPER</a>
+          <a href="#contact" class="w3-bar-item w3-button w3-hide-small">CONTACT</a>
         </div>
+      </div>
+    </div>
+
+    <!--small navigation bar-->
+    <div id="navSmall" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:55px">
+      <a href="#demo" class="w3-bar-item w3-button w3-padding-large" onclick="openMenu()">DEMO</a>
+      <a href="https://github.com/apps/upgradvisor-python3" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button w3-padding-large" onclick="openMenu()">APP</a>
+      <a href="https://figshare.com/articles/software/UPGRADVISOR_Early_Adopting_Dependency_Updates_Using_Production_Traces/19593457" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button w3-padding-large" onclick="openMenu()">ARTIFACT</a>
+      <a href="https://yanivmd.github.io/files/Upgradvisor-Paper.pdf" target="_blank" rel="noopener noreferrer" class="w3-bar-item w3-button w3-padding-large" onclick="openMenu()">PAPER</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="openMenu()">CONTACT</a>
     </div>
 
     <!--title page-->
@@ -61,46 +72,42 @@
     <!--about-->
     <div class="w3-padding-32">
       <div class="w3-display-container w3-padding-64" style="max-width:90%;margin:auto">
-        <div class="row">
-          <div class="column">
-            <img class="column-img" src="./images/programming 1.jpg" alt="Laptop" style="max-width:100%;height:105vh;object-fit:cover">
-            <div class="column-padding">
-              UPGRADVISOR introduces a novel co-designed static analysis and dynamic tracing mechanism 
-              to gauge the scope and effect of dependency updates on an application. Static analysis prunes changes 
-              irrelevant to an application and clusters relevant ones into targets. Dynamic tracing needs to focus only on 
-              whether targets affect an application, making it fast and accurate. UPGRADVISOR handles dynamic interpreted 
-              languages while accounting for their lack of type information. A modified interpreter captures program 
-              execution while ignoring interpreter machinery. 
-            </div>
-            <img class="column-img" src="./images/programming 3.jpg" alt="Laptop" style="max-width:100%;height:97vh;object-fit:cover">
+        <div class="w3-row-padding">
+          <div class="w3-half w3-center">
+            <img class="w3-image w3-round-large w3-center" src="./images/laptop.jpg" alt="Programming image" style="max-width:520px;max-height:724px;object-fit:cover">
           </div>
-          <div class="column">
-            <div class="column-padding">
-              <h1 style="font-size:2.5em;padding-bottom:5px"><strong>Upgrade your dependencies with confidence.</strong></h1>
-              Fast-paced release schedules, along with aging dependencies, leave applications susceptible to security risks 
-              and unexpected breakage. We present UPGRADVISOR, a system that reduces developer effort in evaluating 
-              dependency updates and can, in many cases, automatically determine which updates are backward-compatible 
-              versus API-breaking.  
+          <div class="w3-half">
+            <div style="padding-bottom:20px">
+              <h1 style="font-size:2em;padding-bottom:5px"><strong>Upgrade your dependencies with confidence.</strong></h1>
+              <div class="scroll" style="padding-right:10px;max-height:80vh;overflow:auto;font-size:0.9em">
+                  Fast-paced release schedules along with aging dependencies leave applications susceptible to security risks and
+                  unexpected breakage. We present UPGRADVISOR, a system that reduces developer effort in evaluating dependency 
+                  updates and can, in many cases, automatically determine which updates are backward-compatible versus 
+                  API-breaking. 
+                  <br><br>
+                  UPGRADVISOR introduces a novel co-designed static analysis and dynamic tracing mechanism to gauge the scope and
+                  effect of dependency updates on an application. Static analysis prunes changes irrelevant to an application and
+                  clusters relevant ones into targets. Dynamic tracing needs to focus only on whether targets affect an 
+                  application, making it fast and accurate. UPGRADVISOR handles dynamic interpreted languages while accounting 
+                  for their lack of type information. A modified interpreter captures program execution while ignoring interpreter 
+                  machinery.
+                  <br><br>
+                  We have implemented UPGRADVISOR for Python and evaluated it on 172 dependency updates previously blocked from 
+                  being adopted in widely-used open-source software, including Django, aws-cli, tfx, and Celery. UPGRADVISOR 
+                  automatically determined that 56% of dependencies were safe to update and reduced by >90% the changes that 
+                  needed to be considered by dynamic tracing. UPGRADVISOR’s tracer incurred only 3% overhead on average, making 
+                  it fast enough to deploy in practice. We submitted safe updates that were previously blocked as pull requests 
+                  for nine projects, and their developers have already merged most of them.
+              </div>
             </div>
-            <img class="column-img" src="./images/programming 2.jpg" alt="Laptop" style="max-width:100%;height:93vh;object-fit:cover">
-            <div class="column-padding">
-              We have implemented UPGRADVISOR for Python and evaluated it on 
-              172 dependency updates previously blocked from being adopted in widely-used open-source software, including 
-              Django, aws-cli, tfx, and Celery. UPGRADVISOR automatically determined that 56% of dependencies were safe to 
-              update and reduced by >90% the changes that needed to be considered by dynamic tracing. UPGRADVISOR’s tracer 
-              incurred only 3% overhead on average, making it fast enough to deploy in practice. We submitted safe updates 
-              that were previously blocked as pull requests for nine projects, and their developers have already merged most 
-              of them.
-            </div>
-            <a href="https://yanivmd.github.io/files/Upgradvisor-Paper.pdf" target="_blank" rel="noopener noreferrer" id="paper-button" class="w3-round-large">See paper<img src="./images/osdi logo.png" alt="OSDI '22 logo" style="max-height:32px;padding-left:12px;padding-bottom:4px"></a>
+            <a href="https://www.google.com" target="_blank" rel="noopener noreferrer" id="paper-button" class="w3-round-large">See paper<img src="./images/osdi logo.png" alt="OSDI '22 logo" style="max-height:32px;padding-left:12px;padding-bottom:4px"></a>
           </div>
         </div>
-      </div>
       </div>
     </div>
 
     <!--demo-->
-    <div id="demo" class="w3-padding-24 w3-light-grey">
+    <div id="demo" class="w3-padding-16 w3-light-grey">
       <div class="w3-padding-64" style="max-width:82%;margin:auto">
         <div class="w3-center w3-padding-32">
           <span style="color:gray;font-size:1.3em"><strong>Demo</strong></span>
@@ -241,17 +248,9 @@
         <span class="w3-xxlarge">170+</span>
         <br>Dependency Updates Evaluated
       </div>
-      <!--<div class="w3-quarter" style="color:white">-->
-      <!--  <span class="w3-xxlarge">3%</span>-->
-      <!--  <br>Average Overhead Incurred by Tracer-->
-      <!--</div>-->
-      <div class="w3-third" style="color:white">
-        <span class="w3-xxlarge">9</span>
-        <br>Pull Requests Created
+      <div id="createdPRs" class="w3-third" style="color:white">
       </div>
-      <div class="w3-third" style="color:white">
-        <span class="w3-xxlarge">7</span>
-        <br>Pull Requests Merged
+      <div id="mergedPRs" class="w3-third" style="color:white">
       </div>
     </div>
 
@@ -259,8 +258,8 @@
     <div class="w3-container w3-padding-48" id="contact" style="max-width:80%;margin:auto">
       <h3>Contact</h3>
       <p>
-        Want to help or know more? Feel free to reach out to Yaniv - <a class="link" href="https://twitter.com/YanivDa">@YanivDa</a> on
-        Twitter or yaniv.david@columbia.edu.
+        Want to help or know more? Feel free to reach out to Yaniv on Twitter at <a class="link" href="https://twitter.com/YanivDa">@YanivDa</a>
+        or through email at <a class="link" href="mailto:yaniv.david@columbia.edu">yaniv.david@columbia.edu</a>.
       </p>
     </div>
 
@@ -361,5 +360,4 @@
     </footer>
   </body>
 </html>
-
 
