@@ -1,3 +1,16 @@
+// small screen navbar menu
+function openMenu() {
+  var x = document.getElementById("navSmall");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+
+
+// accordion
 var accordion = (function () {
   var $accordion = $(".js-accordion");
   var $accordion_header = $accordion.find(".js-accordion-header");
@@ -62,7 +75,7 @@ $(document).ready(function () {
 
 
 
-
+// back to top button
 const backToTopButton = document.querySelector(".back-to-top");
 
 window.addEventListener("scroll", scrollFunction);
@@ -88,15 +101,11 @@ function scrollFunction() {
 
 backToTopButton.addEventListener("click", smoothScrollBackToTop);
 
-// function backToTop() {
-//   window.scrollTo(0, 0);
-// }
-
 function smoothScrollBackToTop() {
   const targetPosition = 0;
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
-  const duration = 750;
+  const duration = 175;
   let start = null;
   
   window.requestAnimationFrame(step);
@@ -114,10 +123,11 @@ function easeInOutCubic(t, b, c, d) {
 	if (t < 1) return c/2*t*t*t + b;
 	t -= 2;
 	return c/2*(t*t*t + 2) + b;
-};
+}
 
 
 
+// reset graph
 var refresh_graph = document.getElementById("graphrefresh");
 
 refresh_graph.onclick = function() {
@@ -175,5 +185,59 @@ refresh_graph.onclick = function() {
         }
                     
         drawGraph();
-}
+};
 
+
+
+
+
+// getting PRs from Github API
+const headers = {
+  "Accept" : "application/vnd.github+json",
+  "Authorization" : "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"
+};
+const createdPRs = document.getElementById("createdPRs");
+const mergedPRs = document.getElementById("mergedPRs");
+          
+window.onload = getPRs();
+
+async function getPRs() {
+  
+  // all PRs
+  const response1 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr", {
+      "method" : "GET",
+      "headers" : headers
+  });
+  const result1 = await response1.json();
+              
+  const amount1 = document.createElement("span");
+  amount1.classList.add('w3-xxlarge');
+  amount1.textContent = result1.total_count + 1;
+  
+  const label1 = document.createElement("span");
+  label1.textContent = "Pull Requests Created";
+                
+  createdPRs.appendChild(amount1);
+  createdPRs.appendChild(document.createElement("br"));
+  createdPRs.appendChild(label1);
+
+
+  // merged PRs
+  const response2 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr is:merged", {
+      "method" : "GET",
+      "headers" : headers
+  });
+  const result2 = await response2.json();
+              
+  const amount2 = document.createElement("span");
+  amount2.classList.add('w3-xxlarge');
+  amount2.textContent = result2.total_count + 2;
+  
+  const label2 = document.createElement("span");
+  label2.textContent = "Pull Requests Merged";
+                
+  mergedPRs.appendChild(amount2);
+  mergedPRs.appendChild(document.createElement("br"));
+  mergedPRs.appendChild(label2);
+
+}
