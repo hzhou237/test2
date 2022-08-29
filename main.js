@@ -194,7 +194,6 @@ refresh_graph.onclick = function() {
 // getting PRs from Github API
 const headers = {
   "Accept" : "application/vnd.github+json",
-  "Authorization" : "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"
 };
 const createdPRs = document.getElementById("createdPRs");
 const mergedPRs = document.getElementById("mergedPRs");
