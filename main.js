@@ -194,24 +194,20 @@ refresh_graph.onclick = function() {
 // getting PRs from Github API
 const headers = {
   "Accept" : "application/vnd.github+json",
+  // "Authorization" : "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"
 };
 const createdPRs = document.getElementById("createdPRs");
 const mergedPRs = document.getElementById("mergedPRs");
-          
-window.onload = getPRs();
 
-async function getPRs() {
+// create array for cached values
+const storage = [1, 1];
+
+function showPRs() {
   
   // all PRs
-  const response1 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr", {
-      "method" : "GET",
-      "headers" : headers
-  });
-  const result1 = await response1.json();
-              
   const amount1 = document.createElement("span");
   amount1.classList.add('w3-xxlarge');
-  amount1.textContent = result1.total_count + 1;
+  amount1.textContent = storage[0];
   
   const label1 = document.createElement("span");
   label1.textContent = "Pull Requests Created";
@@ -219,18 +215,11 @@ async function getPRs() {
   createdPRs.appendChild(amount1);
   createdPRs.appendChild(document.createElement("br"));
   createdPRs.appendChild(label1);
-
-
+  
   // merged PRs
-  const response2 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr is:merged", {
-      "method" : "GET",
-      "headers" : headers
-  });
-  const result2 = await response2.json();
-              
   const amount2 = document.createElement("span");
   amount2.classList.add('w3-xxlarge');
-  amount2.textContent = result2.total_count + 2;
+  amount2.textContent = storage[1];
   
   const label2 = document.createElement("span");
   label2.textContent = "Pull Requests Merged";
@@ -238,5 +227,35 @@ async function getPRs() {
   mergedPRs.appendChild(amount2);
   mergedPRs.appendChild(document.createElement("br"));
   mergedPRs.appendChild(label2);
+  
+}
+
+async function getPRs() {
+  
+  storage = [];
+  
+  // all PRs
+  const response1 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr", {
+      "method" : "GET",
+      "headers" : headers
+  });
+  const result1 = await response1.json();
+  storage.push(result1.total_count + 1);
+
+  // merged PRs
+  const response2 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr is:merged", {
+      "method" : "GET",
+      "headers" : headers
+  });
+  const result2 = await response2.json();
+  storage.push(result2.total_count + 2);
+  
+  showPRs();
 
 }
+
+window.onload = showPRs();
+
+window.setInterval(getPRs(), 10000);
+
+
