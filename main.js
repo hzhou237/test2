@@ -194,20 +194,17 @@ refresh_graph.onclick = function() {
 // getting PRs from Github API
 const headers = {
   "Accept" : "application/vnd.github+json",
-  // "Authorization" : "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"
+  // "Authorization" : "personal access token"
 };
 const createdPRs = document.getElementById("createdPRs");
 const mergedPRs = document.getElementById("mergedPRs");
-
-// create array for cached values
-const storage = [1, 1];
 
 function showPRs() {
   
   // all PRs
   const amount1 = document.createElement("span");
   amount1.classList.add('w3-xxlarge');
-  amount1.textContent = storage[0];
+  amount1.textContent = localStorage.getItem("allPRs");
   
   const label1 = document.createElement("span");
   label1.textContent = "Pull Requests Created";
@@ -219,7 +216,7 @@ function showPRs() {
   // merged PRs
   const amount2 = document.createElement("span");
   amount2.classList.add('w3-xxlarge');
-  amount2.textContent = storage[1];
+  amount2.textContent = localStorage.getItem("mergedPRs");
   
   const label2 = document.createElement("span");
   label2.textContent = "Pull Requests Merged";
@@ -232,15 +229,13 @@ function showPRs() {
 
 async function getPRs() {
   
-  storage = [];
-  
   // all PRs
   const response1 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr", {
       "method" : "GET",
       "headers" : headers
   });
   const result1 = await response1.json();
-  storage.push(result1.total_count + 1);
+  localStorage.setItem("allPRs", result1.total_count + 1);
 
   // merged PRs
   const response2 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr is:merged", {
@@ -248,14 +243,16 @@ async function getPRs() {
       "headers" : headers
   });
   const result2 = await response2.json();
-  storage.push(result2.total_count + 2);
+  localStorage.setItem("mergedPRs", result2.total_count + 2);
   
-  showPRs();
+}
 
+if (localStorage.getItem("allPRs") === null) {
+  getPRs();
 }
 
 window.onload = showPRs();
 
-window.setInterval(getPRs(), 10000);
-
+// send a request every hour
+setInterval(getPRs(), 3600000);
 
