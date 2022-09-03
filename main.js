@@ -247,12 +247,18 @@ async function getPRs() {
   
 }
 
-if (localStorage.getItem("allPRs") === null) {
-  getPRs();
+function checkStorage() {
+  
+  if (localStorage.getItem("allPRs") === null) {
+    getPRs();
+  }
+  
 }
 
+window.onload = checkStorage();
 window.onload = showPRs();
 
 // send a request every hour
 setInterval(getPRs(), 3600000);
+
 
