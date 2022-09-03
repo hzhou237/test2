@@ -247,18 +247,21 @@ async function getPRs() {
   
 }
 
-function checkStorage() {
+
+
+async function checkStorage() {
   
   if (localStorage.getItem("allPRs") === null) {
-    getPRs();
+    await getPRs();
+    showPRs();
+  }
+  else {
+    showPRs();
   }
   
 }
 
-window.onload = checkStorage();
-window.onload = showPRs();
+window.addEventListener('DOMContentLoaded', checkStorage);
 
 // send a request every hour
 setInterval(getPRs(), 3600000);
-
-
