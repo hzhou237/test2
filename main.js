@@ -235,7 +235,7 @@ async function getPRs() {
       "headers" : headers
   });
   const result1 = await response1.json();
-  localStorage.setItem("allPRs", result1.total_count + 1);
+  localStorage.setItem("allPRs", parseInt(result1.total_count) + 1);
 
   // merged PRs
   const response2 = await fetch("https://api.github.com/search/issues?q=author:upgradvisor-bot is:pr is:merged", {
@@ -243,7 +243,7 @@ async function getPRs() {
       "headers" : headers
   });
   const result2 = await response2.json();
-  localStorage.setItem("mergedPRs", result2.total_count + 2);
+  localStorage.setItem("mergedPRs", parseInt(result2.total_count) + 2);
   
 }
 
@@ -259,9 +259,18 @@ async function checkStorage() {
     showPRs();
   }
   
+  if (localStorage.getItem("allPRs").isNaN()) {
+    await getPRs();
+    showPRs();
+  }
+  else {
+    showPRs();
+  }
+  
 }
 
 window.addEventListener('DOMContentLoaded', checkStorage);
 
 // send a request every hour
 setInterval(getPRs(), 3600000);
+
