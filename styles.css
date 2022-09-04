@@ -41,19 +41,14 @@ code {
 
 
 #paper-button {
-  background: black;
-  color: white;
+  color: #8cc63f;
   display: inline-block;
-  padding: 8px 16px;
-  vertical-align: middle;
-  overflow: hidden;
   text-decoration: none;
-  text-align: center;
-  white-space: nowrap;
+  font-size: 4.5vh;
 }
 
 #paper-button:hover {
-  background: #8cc63f;
+  color: #599104;
 }
 
 
@@ -92,7 +87,7 @@ code {
 
 @media(max-width: 992px) {
   .container { padding: 20px 100px; }
-  .back-to-top { font-size: 22px; width: 40px; height: 40px; bottom: 15px; right: 15px; }
+  .back-to-top { font-size: 50px; width: 40px; height: 40px; bottom: 15px; right: 15px; }
 }
 
 @media(max-width:768px) {
@@ -101,7 +96,7 @@ code {
   h1 { font-size: 26px; }
   h2 { font-size: 22px; }
   hr { margin: 30px 0; }
-  .back-to-top { font-size: 18px; width: 32px; height: 32px; bottom: 6px; right: 6px; }
+  .back-to-top { font-size: 8px; width: 32px; height: 32px; bottom: 10px; right: 10px; }
 }
 
 /* Animations */
@@ -144,25 +139,22 @@ code {
 
 
 /*parallax effect*/
-.bgimg-1,.bgimg-2,.bgimg-3 {
+.bgimg-1 {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-.bgimg-1 {
   background-image: url('./images/laptop dark.jpg');
   min-height: 100%;
 }
 
-.bgimg-2 {
-  background-image: url('https://images.unsplash.com/photo-1482062364825-616fd23b8fc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
-  min-height: 60%;
+.w3-wide {
+  letter-spacing: 10px;
 }
 
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
+.w3-hover-opacity {
+  cursor: pointer;
+}
 
 .center {
   margin: auto;
@@ -181,25 +173,17 @@ code {
   cursor: grab;
 }
 
-@media screen and (max-width: 500px) {
-  #mynetwork {
-      width: 100%;
-      display: inline-block;
-      margin: auto;
-  }
-}
 
-
-.container{
+.container {
   position: relative;
   padding-top: 40px;
 }
 
-.box{
+.box {
   position: absolute;
 }
 
-.stack-top{
+.stack-top {
   z-index: 1;
   top: 0;
 }
@@ -238,6 +222,14 @@ input {
 }
 
 
+#abstract {
+  padding-right: 10px;
+  max-height: 80vh;
+  overflow: auto;
+  font-size: 2.85vh;
+}
+
+
 /*scroll bar*/
 .scroll::-webkit-scrollbar {
   width: 7px;
@@ -261,7 +253,7 @@ input {
 
 .accordion {
   font-size: 1rem;
-  width: 97%;
+  width: 94%;
   margin: 0 auto;
   border-radius: 5px;
 }
@@ -355,6 +347,7 @@ a {
 .contact-icons {
   border: none;
   background: none;
+  color: black;
 }
 
 .contact-icons:hover {
@@ -377,6 +370,31 @@ a {
     -ms-flex: 100%;
     flex: 100%;
     max-width: 100%;
+  }
+  #upgradvisor {
+    font-size: 9vw !important;
+  }
+  #description {
+    font-size: 3vw !important;
+    max-width: 70% !important;
+  }
+  #app-link {
+    font-size: 3vw !important;
+  }
+  #laptop {
+    max-width: 79vw !important;
+  }
+  #mynetwork {
+    width: 75.75vw;
+    height: 75.75vw;
+    display: inline-block;
+    margin: auto;
+  }
+  #heading {
+    font-size: 5vh !important;
+  }
+  #abstract {
+    font-size: 2.3vh !important;
   }
 }
 
