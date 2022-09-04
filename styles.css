@@ -40,15 +40,15 @@ code {
 }
 
 
-#paper-button {
-  color: #8cc63f;
+#paperlink {
+  color: #6eb305;
   display: inline-block;
   text-decoration: none;
   font-size: 4.5vh;
 }
 
-#paper-button:hover {
-  color: #599104;
+#paperlink:hover {
+  color: #4b7a04;
 }
 
 
