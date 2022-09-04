@@ -206,8 +206,12 @@ function showPRs() {
   amount1.classList.add('w3-xxlarge');
   amount1.textContent = localStorage.getItem("allPRs");
   
-  const label1 = document.createElement("span");
+  const label1 = document.createElement("a");
   label1.textContent = "Pull Requests Created";
+  label1.classList.add('orglink');
+  label1.href = "https://github.com/upgradvisor";
+  label1.target = "_blank";
+  label1.rel = "noopener noreferrer";
                 
   createdPRs.appendChild(amount1);
   createdPRs.appendChild(document.createElement("br"));
@@ -218,8 +222,12 @@ function showPRs() {
   amount2.classList.add('w3-xxlarge');
   amount2.textContent = localStorage.getItem("mergedPRs");
   
-  const label2 = document.createElement("span");
+  const label2 = document.createElement("a");
   label2.textContent = "Pull Requests Merged";
+  label2.classList.add('orglink');
+  label2.href = "https://github.com/upgradvisor";
+  label2.target = "_blank";
+  label2.rel = "noopener noreferrer";
                 
   mergedPRs.appendChild(amount2);
   mergedPRs.appendChild(document.createElement("br"));
